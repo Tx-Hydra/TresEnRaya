@@ -86,24 +86,28 @@ void marcar(posi &tabla, int turno, int numpartidas){
 }
 
 bool wincheck(posi tabla, int turno,int numpartidas){
-    if (numpartidas % 2 == 1){
+    std::string equis;
+    equis = " x ";
+    std::string circu;
+    circu = " o ";
 
+    if (numpartidas % 2 == 1){
         if( ( turno % 2 ) == 1){
 
             //checkeo las filas
 
             if( (tabla[0].ocupada == true) && (tabla[1].ocupada == true) && (tabla[2].ocupada == true)){
-                if ( (tabla[0].tipo == " x ") && (tabla[1].tipo == " x ") && (tabla[2].tipo == " x ") ){
+                if ( (tabla[0].tipo == equis) && (tabla[1].tipo == equis) && (tabla[2].tipo == equis) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[3].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[5].ocupada == true )) ){
-                if ( (tabla[3].tipo == " x ") && (tabla[4].tipo == " x ") && (tabla[5].tipo == " x ") ){
+                if ( (tabla[3].tipo == equis) && (tabla[4].tipo == equis) && (tabla[5].tipo == equis) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[6].ocupada == true )&& (tabla[7].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                if ( (tabla[6].tipo == " x ") && (tabla[7].tipo == " x ") && (tabla[8].tipo == " x ") ){
+                if ( (tabla[6].tipo == equis) && (tabla[7].tipo == equis) && (tabla[8].tipo == equis) ){
                     return true;
                 }
             }
@@ -111,17 +115,17 @@ bool wincheck(posi tabla, int turno,int numpartidas){
             //chekeo las columnas
 
             else if ( ( ( tabla[0].ocupada == true ) && ( tabla[3].ocupada == true ) && ( tabla[6].ocupada == true ) ) ){
-                if ( ( tabla[0].tipo == " x " ) && ( tabla[3].tipo == " x " ) && ( tabla[6].tipo == " x " ) ){
+                if ( ( tabla[0].tipo == equis ) && ( tabla[3].tipo == equis ) && ( tabla[6].tipo == equis ) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[1].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[7].ocupada == true ) ) ){
-                if ( (tabla[1].tipo == " x ") && (tabla[4].tipo == " x ") && (tabla[7].tipo == " x ") ){
+                if ( (tabla[1].tipo == equis) && (tabla[4].tipo == equis) && (tabla[7].tipo == equis) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[2].ocupada == true )&& ( tabla[5].ocupada == true ) && ( tabla[8].ocupada == true )) ){
-                if ( (tabla[2].tipo == " x ") && (tabla[5].tipo == " x ") && (tabla[8].tipo == " x ") ){
+                if ( (tabla[2].tipo == equis) && (tabla[5].tipo == equis) && (tabla[8].tipo == equis) ){
                     return true;
                 }
             }
@@ -129,86 +133,33 @@ bool wincheck(posi tabla, int turno,int numpartidas){
             //chekeo Diagonales
 
             else if ( ( ( tabla[0].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                if ( (tabla[0].tipo == " x ") && (tabla[4].tipo == " x ") && (tabla[8].tipo == " x ") ){
+                if ( (tabla[0].tipo == equis) && (tabla[4].tipo == equis) && (tabla[8].tipo == equis) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[2].ocupada == true ) && ( tabla[4].ocupada == true ) &&  ( tabla[6].ocupada == true ) ) ){
-                if ( (tabla[2].tipo == " x ") && (tabla[4].tipo == " x ") && (tabla[6].tipo == " x ") ){
+                if ( (tabla[2].tipo == equis) && (tabla[4].tipo == equis) && (tabla[6].tipo == equis) ){
                     return true;
                 }
             
             }
             }
-            else{
-                
-                //checkeo las filas
-
-                if( ( tabla[0].ocupada == true ) && ( tabla[1].ocupada == true ) && ( tabla[2].ocupada == true )){
-                    if ( (tabla[0].tipo == " o ") && (tabla[1].tipo == " o ") && (tabla[2].tipo == " o ") ){
-                        return true;
-                    }
-                }
-                else if ( ( ( tabla[3].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[5].ocupada == true ) ) ){
-                    if ( (tabla[3].tipo == " o ") && (tabla[4].tipo == " o ") && (tabla[5].tipo == " o ") ){
-                        return true;
-                    }
-                }
-                else if ( ( ( tabla[6].ocupada == true ) && ( tabla[7].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                    if ( (tabla[6].tipo == " o ") && (tabla[7].tipo == " o ") && (tabla[8].tipo == " o ") ){
-                        return true;
-                    }
-                }
-
-                //chekeo las columnas
-
-                else if ( ( ( tabla[0].ocupada == true ) && ( tabla[3].ocupada == true ) && ( tabla[6].ocupada == true ) ) ){
-                    if ( (tabla[0].tipo == " o ") && (tabla[3].tipo == " o ") && (tabla[6].tipo == " o ") ){
-                        return true;
-                    }
-                }
-                else if ( ( ( tabla[1].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[7].ocupada == true ) ) ){
-                    if ( (tabla[1].tipo == " o ") && (tabla[4].tipo == " o ") && (tabla[7].tipo == " o ") ){
-                        return true;
-                    }
-                }
-                else if ( ( ( tabla[2].ocupada == true ) && ( tabla[5].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                    if ( ( tabla[2].tipo == " o " ) && ( tabla[5].tipo == " o " ) && ( tabla[8].tipo == " o " ) ){
-                        return true;
-                    }
-                }
-
-                //chekeo Diagonales
-
-                else if ( ( ( tabla[0].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                    if ( (tabla[0].tipo == " o ") && (tabla[4].tipo == " o ") && (tabla[8].tipo == " o ") ){
-                        return true;
-                    }
-                }
-                else if ( ( (tabla[2].ocupada == true )&& ( tabla[4].ocupada == true ) && ( tabla[6].ocupada == true ) ) ) {
-                    if ( (tabla[2].tipo == " o ") && (tabla[4].tipo == " o ") && (tabla[6].tipo == " o ") ){
-                        return true;
-                    }
-                }
-            }
-        }
         else{
-            if( ( turno % 2 ) == 1){
-
+                
             //checkeo las filas
 
-            if( (tabla[0].ocupada == true) && (tabla[1].ocupada == true) && (tabla[2].ocupada == true)){
-                if ( (tabla[0].tipo == " x ") && (tabla[1].tipo == " x ") && (tabla[2].tipo == " x ") ){
+            if( ( tabla[0].ocupada == true ) && ( tabla[1].ocupada == true ) && ( tabla[2].ocupada == true )){
+                if ( (tabla[0].tipo == circu) && (tabla[1].tipo == circu) && (tabla[2].tipo == circu) ){
                     return true;
                 }
             }
-            else if ( ( ( tabla[3].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[5].ocupada == true )) ){
-                if ( (tabla[3].tipo == " x ") && (tabla[4].tipo == " x ") && (tabla[5].tipo == " x ") ){
+            else if ( ( ( tabla[3].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[5].ocupada == true ) ) ){
+                if ( (tabla[3].tipo == circu) && (tabla[4].tipo == circu) && (tabla[5].tipo == circu) ){
                     return true;
                 }
             }
-            else if ( ( ( tabla[6].ocupada == true )&& (tabla[7].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                if ( (tabla[6].tipo == " x ") && (tabla[7].tipo == " x ") && (tabla[8].tipo == " x ") ){
+            else if ( ( ( tabla[6].ocupada == true ) && ( tabla[7].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
+                if ( (tabla[6].tipo == circu) && (tabla[7].tipo == circu) && (tabla[8].tipo == circu) ){
                     return true;
                 }
             }
@@ -216,17 +167,17 @@ bool wincheck(posi tabla, int turno,int numpartidas){
             //chekeo las columnas
 
             else if ( ( ( tabla[0].ocupada == true ) && ( tabla[3].ocupada == true ) && ( tabla[6].ocupada == true ) ) ){
-                if ( ( tabla[0].tipo == " x " ) && ( tabla[3].tipo == " x " ) && ( tabla[6].tipo == " x " ) ){
+                if ( (tabla[0].tipo == circu) && (tabla[3].tipo == circu) && (tabla[6].tipo == circu) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[1].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[7].ocupada == true ) ) ){
-                if ( (tabla[1].tipo == " x ") && (tabla[4].tipo == " x ") && (tabla[7].tipo == " x ") ){
+                if ( (tabla[1].tipo == circu) && (tabla[4].tipo == circu) && (tabla[7].tipo == circu) ){
                     return true;
                 }
             }
-            else if ( ( ( tabla[2].ocupada == true )&& ( tabla[5].ocupada == true ) && ( tabla[8].ocupada == true )) ){
-                if ( (tabla[2].tipo == " x ") && (tabla[5].tipo == " x ") && (tabla[8].tipo == " x ") ){
+            else if ( ( ( tabla[2].ocupada == true ) && ( tabla[5].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
+                if ( ( tabla[2].tipo == circu ) && ( tabla[5].tipo == circu ) && ( tabla[8].tipo == circu ) ){
                     return true;
                 }
             }
@@ -234,12 +185,65 @@ bool wincheck(posi tabla, int turno,int numpartidas){
             //chekeo Diagonales
 
             else if ( ( ( tabla[0].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                if ( (tabla[0].tipo == " x ") && (tabla[4].tipo == " x ") && (tabla[8].tipo == " x ") ){
+                if ( (tabla[0].tipo == circu) && (tabla[4].tipo == circu) && (tabla[8].tipo == circu) ){
+                    return true;
+                }
+            }
+            else if ( ( (tabla[2].ocupada == true )&& ( tabla[4].ocupada == true ) && ( tabla[6].ocupada == true ) ) ) {
+                if ( (tabla[2].tipo == circu) && (tabla[4].tipo == circu) && (tabla[6].tipo == circu) ){
+                    return true;
+                }
+            }
+        }
+    }
+    else{
+        if( ( turno % 2 ) == 0){
+
+            //checkeo las filas
+
+            if( (tabla[0].ocupada == true) && (tabla[1].ocupada == true) && (tabla[2].ocupada == true)){
+                if ( (tabla[0].tipo == equis) && (tabla[1].tipo == equis) && (tabla[2].tipo == equis) ){
+                    return true;
+                }
+            }
+            else if ( ( ( tabla[3].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[5].ocupada == true )) ){
+                if ( (tabla[3].tipo == equis) && (tabla[4].tipo == equis) && (tabla[5].tipo == equis) ){
+                    return true;
+                }
+            }
+            else if ( ( ( tabla[6].ocupada == true )&& (tabla[7].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
+                if ( (tabla[6].tipo == equis) && (tabla[7].tipo == equis) && (tabla[8].tipo == equis) ){
+                    return true;
+                }
+            }
+
+            //chekeo las columnas
+
+            else if ( ( ( tabla[0].ocupada == true ) && ( tabla[3].ocupada == true ) && ( tabla[6].ocupada == true ) ) ){
+                if ( ( tabla[0].tipo == equis ) && ( tabla[3].tipo == equis ) && ( tabla[6].tipo == equis ) ){
+                    return true;
+                }
+            }
+            else if ( ( ( tabla[1].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[7].ocupada == true ) ) ){
+                if ( (tabla[1].tipo == equis) && (tabla[4].tipo == equis) && (tabla[7].tipo == equis) ){
+                    return true;
+                }
+            }
+            else if ( ( ( tabla[2].ocupada == true )&& ( tabla[5].ocupada == true ) && ( tabla[8].ocupada == true )) ){
+                if ( (tabla[2].tipo == equis) && (tabla[5].tipo == equis) && (tabla[8].tipo == equis) ){
+                    return true;
+                }
+            }
+
+            //chekeo Diagonales
+
+            else if ( ( ( tabla[0].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
+                if ( (tabla[0].tipo == equis) && (tabla[4].tipo == equis) && (tabla[8].tipo == equis) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[2].ocupada == true ) && ( tabla[4].ocupada == true ) &&  ( tabla[6].ocupada == true ) ) ){
-                if ( (tabla[2].tipo == " x ") && (tabla[4].tipo == " x ") && (tabla[6].tipo == " x ") ){
+                if ( (tabla[2].tipo == equis) && (tabla[4].tipo == equis) && (tabla[6].tipo == equis) ){
                     return true;
                 }
             
@@ -250,17 +254,17 @@ bool wincheck(posi tabla, int turno,int numpartidas){
             //checkeo las filas
 
             if( ( tabla[0].ocupada == true ) && ( tabla[1].ocupada == true ) && ( tabla[2].ocupada == true )){
-                if ( (tabla[0].tipo == " o ") && (tabla[1].tipo == " o ") && (tabla[2].tipo == " o ") ){
+                if ( (tabla[0].tipo == circu) && (tabla[1].tipo == circu) && (tabla[2].tipo == circu) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[3].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[5].ocupada == true ) ) ){
-                if ( (tabla[3].tipo == " o ") && (tabla[4].tipo == " o ") && (tabla[5].tipo == " o ") ){
+                if ( (tabla[3].tipo == circu) && (tabla[4].tipo == circu) && (tabla[5].tipo == circu) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[6].ocupada == true ) && ( tabla[7].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                if ( (tabla[6].tipo == " o ") && (tabla[7].tipo == " o ") && (tabla[8].tipo == " o ") ){
+                if ( (tabla[6].tipo == circu) && (tabla[7].tipo == circu) && (tabla[8].tipo == circu) ){
                     return true;
                 }
             }
@@ -268,17 +272,17 @@ bool wincheck(posi tabla, int turno,int numpartidas){
             //chekeo las columnas
 
             else if ( ( ( tabla[0].ocupada == true ) && ( tabla[3].ocupada == true ) && ( tabla[6].ocupada == true ) ) ){
-                if ( (tabla[0].tipo == " o ") && (tabla[3].tipo == " o ") && (tabla[6].tipo == " o ") ){
+                if ( (tabla[0].tipo == circu) && (tabla[3].tipo == circu) && (tabla[6].tipo == circu) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[1].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[7].ocupada == true ) ) ){
-                if ( (tabla[1].tipo == " o ") && (tabla[4].tipo == " o ") && (tabla[7].tipo == " o ") ){
+                if ( (tabla[1].tipo == circu) && (tabla[4].tipo == circu) && (tabla[7].tipo == circu) ){
                     return true;
                 }
             }
             else if ( ( ( tabla[2].ocupada == true ) && ( tabla[5].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                if ( ( tabla[2].tipo == " o " ) && ( tabla[5].tipo == " o " ) && ( tabla[8].tipo == " o " ) ){
+                if ( ( tabla[2].tipo == circu ) && ( tabla[5].tipo == circu ) && ( tabla[8].tipo == circu ) ){
                     return true;
                 }
             }
@@ -286,15 +290,15 @@ bool wincheck(posi tabla, int turno,int numpartidas){
             //chekeo Diagonales
 
             else if ( ( ( tabla[0].ocupada == true ) && ( tabla[4].ocupada == true ) && ( tabla[8].ocupada == true ) ) ){
-                if ( (tabla[0].tipo == " o ") && (tabla[4].tipo == " o ") && (tabla[8].tipo == " o ") ){
+                if ( (tabla[0].tipo == circu) && (tabla[4].tipo == circu) && (tabla[8].tipo == circu) ){
                     return true;
                 }
             }
             else if ( ( (tabla[2].ocupada == true )&& ( tabla[4].ocupada == true ) && ( tabla[6].ocupada == true ) ) ) {
-                if ( (tabla[2].tipo == " o ") && (tabla[4].tipo == " o ") && (tabla[6].tipo == " o ") ){
+                if ( (tabla[2].tipo == circu) && (tabla[4].tipo == circu) && (tabla[6].tipo == circu) ){
                     return true;
-                }
-            }
+                }   
+            }      
         }
     }
     return false;
@@ -338,10 +342,11 @@ int main(){
     bool jugar = true;
     int turno;
     int winx,wino;
+    int numpartidas;
+    numpartidas = 0;
     winx = 0;
     wino = 0;
     posi tabla = crearceldas();
-    int numpartidas = 0;    
     while( jugar == true ){
         int opcion;
         std::cout<<":::  Tres En Raya  :::\n\n";
@@ -373,7 +378,7 @@ int main(){
                         std::cout<<"o ";
                     }
                     marcar(tabla, turno, numpartidas);
-                    if (wincheck(tabla, (turno), numpartidas ) ){
+                    if ( wincheck(tabla, (turno), numpartidas ) ){
                         contador(winx,wino,numpartidas,turno);
                         indicadorwin(tabla,turno, numpartidas);
                         break;
@@ -386,16 +391,15 @@ int main(){
                     else{ 
                         std::cout<<"x ";
                     }
+                    marcar(tabla, turno, numpartidas);
                     if (wincheck(tabla,turno,numpartidas) ){
                         contador(winx,wino,numpartidas,turno);
                         indicadorwin(tabla,turno, numpartidas);
                         break;
                     }
-                    marcar(tabla, turno, numpartidas); 
                 }
                 turno++;
             }
-            
             
             if (turno > 9){
                 Imprimir(tabla);
